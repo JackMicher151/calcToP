@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+}
+
+#calcbody {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: aquamarine;
+    width: 300px;
+    height: 400px;
+    padding: 2%;
+}
+
+#calcscreen {
+    flex: 0 0 15vh;
+    background-color: cadetblue;
+
+}
