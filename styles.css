@@ -9,14 +9,35 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: aquamarine;
+    background-color: grey;
     width: 300px;
     height: 400px;
-    padding: 2%;
+    padding: 15px;
 }
 
 #calcscreen {
-    flex: 0 0 15vh;
+    flex: 0 0 15%;
     background-color: cadetblue;
+}
 
+#calcbuttontray {
+    display: flex;
+    flex: 1 0 auto;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: azure;
+}
+
+.calcbrow {
+    display: flex;
+    flex: 0.24 0 auto;
+    justify-content: space-evenly;
+    gap: 2px;
+    background-color: #bbb;
+}
+
+.calcbutton {
+    flex: 1 1 auto;
+    background-color: #da3;
+    border-radius: 50%;
 }
