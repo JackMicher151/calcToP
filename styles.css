@@ -32,12 +32,25 @@
     display: flex;
     flex: 0.24 0 auto;
     justify-content: space-evenly;
+    align-items: center;
     gap: 2px;
     background-color: #bbb;
 }
 
 .calcbutton {
+    position: relative;
     flex: 1 1 auto;
     background-color: #da3;
     border-radius: 50%;
+    aspect-ratio: 1/1;
+}
+
+.calcbutton > div {
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
 }
