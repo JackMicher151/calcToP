@@ -1,4 +1,4 @@
-let calcScreen = document.getElementById('calcscreen');
+let calcScreen = document.getElementById('calcscrnums');
 let currVal = null,
     firstVal = null,
     secondVal = null,
@@ -27,7 +27,8 @@ for (const elem of calcButtons) {
         } else if (testepic === '/') {
             operatorCall('/');
         } else if (testepic === '=') {
-            if (!(firstVal != null || secondVal != null || operator != null)) {
+            if (firstVal != null && operator != null) {
+                secondVal = Number.parseFloat(currVal);
                 calcResult = calcEval();
                 calcScreen.innerText = calcResult;
                 currVal = null;
@@ -47,14 +48,11 @@ for (const elem of calcButtons) {
 }
 
 function operatorCall(operation) {
-    if (!isNaN(Number.parseFloat(currVal))) {
-        if (firstVal === null) {
-            firstVal = Number.parseFloat(currVal);
-            operator = operation;
-        } else if (secondVal === null) {
-            secondVal = Number.parseFloat(currVal);
-        }
+    if (!isNaN(Number.parseFloat(currVal)) && firstVal === null) {
+        firstVal = Number.parseFloat(currVal);
+        calcScreen.innerText = '';
     }
+    operator = operation;
 }
 
 function calcEval() {
