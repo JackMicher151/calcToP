@@ -1,4 +1,5 @@
 let calcScreen = document.getElementById('calcscrnums');
+let calcEquation = document.getElementById('calcscrequation');
 let currVal = null,
     firstVal = null,
     secondVal = null,
@@ -35,6 +36,7 @@ for (const elem of calcButtons) {
                 firstVal = null;
                 secondVal = null;
                 operator = null;
+                calcEquation.innerText = '';
             }
         } else if (testepic === 'C') {
             calcScreen.innerText = '';
@@ -43,6 +45,7 @@ for (const elem of calcButtons) {
             secondVal = null;
             operator = null;
             calcResult = null;
+            calcEquation.innerText = '';
         }
     })
 }
@@ -51,6 +54,9 @@ function operatorCall(operation) {
     if (!isNaN(Number.parseFloat(currVal)) && firstVal === null) {
         firstVal = Number.parseFloat(currVal);
         calcScreen.innerText = '';
+    }
+    if (firstVal != null) {
+        calcEquation.innerText = firstVal + ' ' + operation;
     }
     operator = operation;
 }
