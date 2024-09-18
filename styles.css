@@ -22,7 +22,7 @@
     justify-content: space-evenly;
     align-items: center;
     color: #FFF;
-    background-color: #1CF;
+    background-color: rgb(129, 228, 255);
     font-family: 'Courier New', Courier, monospace;
     font-size: 1.5rem;
 }
@@ -59,6 +59,11 @@
     background-color: #da3;
     border-radius: 50%;
     aspect-ratio: 1/1;
+    transition: box-shadow 500ms;
+}
+
+.calcbutton:hover {
+    box-shadow: 0 6px 30px rgb(90, 10, 90);
 }
 
 .calcbutton > div {

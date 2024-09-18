@@ -9,8 +9,8 @@ let currVal = null,
 let calcButtons = document.getElementsByClassName('calcbutton');
 
 for (const elem of calcButtons) {
-    let testepic = elem.getAttribute('value');
     elem.addEventListener('click', e => {
+        let testepic = elem.getAttribute('value');
         if (calcResult != null) {
             calcScreen.innerText = '';
             calcResult = null;
