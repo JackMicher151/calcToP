@@ -69,6 +69,10 @@ function calcEval() {
     } else if (operator === '*') {
         return firstVal * secondVal;
     } else if (operator === '/') {
-        return firstVal / secondVal;
+        if (secondVal === 0) {
+            return '🖕'
+        } else {
+            return firstVal / secondVal;
+        }
     }
 }
