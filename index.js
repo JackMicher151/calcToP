@@ -48,6 +48,19 @@ for (const elem of calcButtons) {
             calcEquation.innerText = '';
         }
     })
+
+    elem.addEventListener('mousedown', () => {
+        elem.style.backgroundColor = 'rgb(120,140,150)';
+        elem.style.boxShadow = 'inset 0 0 10px 2px rgb(20, 80, 110)';
+    })
+
+    elem.addEventListener('mouseup', () => {
+        elem.removeAttribute('style');
+    })
+
+    elem.addEventListener('mouseleave', () => {
+        elem.removeAttribute('style');
+    })
 }
 
 function operatorCall(operation) {
@@ -70,7 +83,7 @@ function calcEval() {
         return firstVal * secondVal;
     } else if (operator === '/') {
         if (secondVal === 0) {
-            return '🖕'
+            return '🖕';
         } else {
             return firstVal / secondVal;
         }

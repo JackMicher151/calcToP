@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: #000;
+}
+
 #calcbody {
     position: absolute;
     display: flex;
@@ -9,10 +13,39 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: grey;
+    border-radius: 10%;
+    overflow: hidden;
     width: 300px;
     height: 400px;
     padding: 15px;
+    z-index: 1;
+}
+
+#calcbody #calcbodybackground1 {
+    animation-name: back1;
+    animation-duration: 7s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform: translate(-15px, -15px);
+    background-image: url(/assets/gradient.png);
+    z-index: 2;
+}
+
+#calcbody #calcbodybackground2 {
+    animation-name: back2;
+    animation-duration: 10s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform: translate(-15px, -15px);
+    background-image: url(/assets/ToPcutout.png);
+    background-size: 20%;
+    z-index: 3;
 }
 
 #calcscreen {
@@ -22,9 +55,10 @@
     justify-content: space-evenly;
     align-items: center;
     color: #FFF;
-    background-color: rgb(129, 228, 255);
-    font-family: 'Courier New', Courier, monospace;
+    background-color: rgb(0, 0, 0);
+    font-family: Courier, monospace, 'Courier New';
     font-size: 1.5rem;
+    z-index: 4;
 }
 
 #calcscrnums {
@@ -42,7 +76,7 @@
     flex: 1 0 auto;
     flex-direction: column;
     justify-content: space-evenly;
-    background-color: azure;
+    z-index: 4;
 }
 
 .calcbrow {
@@ -56,15 +90,17 @@
 .calcbutton {
     position: relative;
     flex: 1 1 auto;
-    background-color: #da3;
+    background-color: rgb(0,0,0);
     border-radius: 50%;
     aspect-ratio: 1/1;
-    transition: box-shadow 500ms;
+    transition: box-shadow 200ms;
 }
 
 .calcbutton:hover {
-    box-shadow: 0 6px 30px rgb(90, 10, 90);
+    box-shadow: 0 0 6px 2px rgb(250, 220, 90);
 }
+
+
 
 .calcbutton > div {
     position: absolute;
@@ -73,6 +109,25 @@
     left: 50%;
     transform: translate(-50%, -50%);
     font-family: Arial, Helvetica, sans-serif;
+    color: #FFF;
     font-size: 1.5em;
     user-select: none;
+}
+
+@keyframes back1 {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 0%;
+    }
+}
+
+@keyframes back2 {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
 }
