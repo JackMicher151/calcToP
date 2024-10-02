@@ -23,7 +23,7 @@ body {
 
 #calcbody #calcbodybackground1 {
     animation-name: back1;
-    animation-duration: 7s;
+    animation-duration: 5s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     width: 100%;
@@ -31,6 +31,7 @@ body {
     position: absolute;
     transform: translate(-15px, -15px);
     background-image: url(/assets/gradient.png);
+    background-size: cover;
     z-index: 2;
 }
 
