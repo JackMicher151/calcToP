@@ -8,6 +8,17 @@ let currVal = null,
 
 let calcButtons = document.getElementsByClassName('calcbutton');
 
+let motion = document.querySelector("#motiontoggle > input[type='checkbox']");
+let bgOverlay = document.getElementById('calcbodybackground2');
+
+motion.addEventListener('change', e => {
+    if(motion.checked) {
+        bgOverlay.style.opacity = 0;
+    } else {
+        bgOverlay.removeAttribute('style');
+    }
+})
+
 for (const elem of calcButtons) {
     elem.addEventListener('click', e => {
         let testepic = elem.getAttribute('value');

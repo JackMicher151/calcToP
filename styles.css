@@ -6,6 +6,15 @@ body {
     background-color: #000;
 }
 
+#mainwrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 500px;
+}
+
 #calcbody {
     position: absolute;
     display: flex;
@@ -21,7 +30,7 @@ body {
     z-index: 1;
 }
 
-#calcbody #calcbodybackground1 {
+#calcbodybackground1 {
     animation-name: back1;
     animation-duration: 5s;
     animation-timing-function: linear;
@@ -35,9 +44,9 @@ body {
     z-index: 2;
 }
 
-#calcbody #calcbodybackground2 {
+#calcbodybackground2 {
     animation-name: back2;
-    animation-duration: 10s;
+    animation-duration: 20s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     width: 100%;
@@ -47,6 +56,7 @@ body {
     background-image: url(/assets/ToPcutout.png);
     background-size: 20%;
     z-index: 3;
+    transition: opacity 0.7s;
 }
 
 #calcscreen {
@@ -80,6 +90,52 @@ body {
     z-index: 4;
 }
 
+#motiontoggle {
+    display: flex;
+    position: absolute;
+    color: #FFF;
+    gap: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 20px;
+    align-items: center;
+}
+
+#motiontoggle > input {
+    opacity: 0;
+    position: absolute;
+}
+
+.customswitch {
+    background-color: #999;
+    border-radius: 20px;
+    width: 40px;
+    height: 25px;
+    transition: all 0.5s;
+}
+
+#motiontoggle > input:checked ~ .customswitch {
+    background-color: #209FED;
+}
+
+.circ {
+    position: relative;
+    top: 51%;
+    left: 5%;
+    transform: translateY(-50%);
+    background-color: #DDD;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    transition: all 0.8s;
+}
+
+#motiontoggle > input:checked ~ .customswitch > .circ {
+    background-color: #FFF;
+    left: 40%;
+}
+
+
 .calcbrow {
     display: flex;
     flex: 0.24 0 auto;
@@ -101,8 +157,6 @@ body {
     box-shadow: 0 0 6px 2px rgb(250, 220, 90);
 }
 
-
-
 .calcbutton > div {
     position: absolute;
     text-align: center;
@@ -114,6 +168,8 @@ body {
     font-size: 1.5em;
     user-select: none;
 }
+
+
 
 @keyframes back1 {
     0% {
