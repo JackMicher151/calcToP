@@ -57,6 +57,7 @@ body {
     background-size: 20%;
     z-index: 3;
     transition: opacity 0.7s;
+    mix-blend-mode: overlay;
 }
 
 #calcscreen {
@@ -98,7 +99,10 @@ body {
     left: 50%;
     transform: translateX(-50%);
     bottom: 20px;
+    width: 300px;
     align-items: center;
+    justify-content: center;
+    font-family: monospace, Arial;
 }
 
 #motiontoggle > input {
