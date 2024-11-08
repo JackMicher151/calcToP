@@ -22,6 +22,7 @@ motion.addEventListener('change', e => {
 for (const elem of calcButtons) {
     elem.addEventListener('click', e => {
         let testepic = elem.getAttribute('value');
+        
         if (calcResult != null) {
             calcScreen.innerText = '';
             calcResult = null;

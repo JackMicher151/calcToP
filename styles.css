@@ -24,7 +24,7 @@ body {
     transform: translate(-50%, -50%);
     border-radius: 10%;
     overflow: hidden;
-    width: 300px;
+    width: 320px;
     height: 400px;
     padding: 15px;
     z-index: 1;
@@ -63,7 +63,7 @@ body {
 #calcscreen {
     position: relative;
     display: flex;
-    flex: 0 0 15%;
+    flex: 0 0 20%;
     justify-content: space-evenly;
     align-items: center;
     color: #FFF;
@@ -173,7 +173,12 @@ body {
     user-select: none;
 }
 
-
+.emptybutton {
+    position: relative;
+    flex: 1 1 auto;
+    border-radius: 50%;
+    aspect-ratio: 1/1;
+}
 
 @keyframes back1 {
     0% {
