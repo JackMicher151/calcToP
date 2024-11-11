@@ -23,10 +23,10 @@ for (const elem of calcButtons) {
     elem.addEventListener('click', e => {
         let testepic = elem.getAttribute('value');
         
-        if (calcResult != null) {
-            calcScreen.innerText = '';
-            calcResult = null;
-        }
+        // if (calcResult != null) {
+        //     calcScreen.innerText = '';
+        //     calcResult = null;
+        // }
 
         if (Number.isInteger(Number.parseInt(testepic))) {
             calcScreen.innerText += testepic;
@@ -76,13 +76,21 @@ for (const elem of calcButtons) {
 }
 
 function operatorCall(operation) {
+    if (calcResult != null) {
+        firstVal = calcResult;
+        calcResult = null;
+        calcScreen.innerText = '';
+    }
+
     if (!isNaN(Number.parseFloat(currVal)) && firstVal === null) {
         firstVal = Number.parseFloat(currVal);
         calcScreen.innerText = '';
     }
+
     if (firstVal != null) {
         calcEquation.innerText = firstVal + ' ' + operation;
     }
+
     operator = operation;
 }
 
