@@ -34,6 +34,10 @@ for (const elem of calcButtons) {
         }
 
         if (Number.isInteger(Number.parseInt(testepic))) {
+            if(calcResult != null) {
+                calcScreen.innerText = '';
+                calcResult = null;
+            }
             calcScreen.innerText += testepic;
             currVal = calcScreen.innerText;
         } else if (testepic === '+') {
@@ -44,11 +48,23 @@ for (const elem of calcButtons) {
             operatorCall('*');
         } else if (testepic === '/') {
             operatorCall('/');
-        } else if (testepic === 'neg') {
-            toggleNeg();
+        } else if (testepic === 'neg' && calcResult === null) {
+            if (calcScreen.innerText.includes('-')) {
+                calcScreen.innerText = calcScreen.innerText.replace('-', '');
+            } else {
+                calcScreen.innerText = '-' + calcScreen.innerText;
+            }
+            currVal = calcScreen.innerText;
+        } else if (testepic === '.' && calcResult === null){
+            if (calcScreen.innerText.includes('.')) {
+                calcScreen.innerText = calcScreen.innerText.replace('.','');
+            } else {
+                calcScreen.innerText = calcScreen.innerText + '.';
+            }
             currVal = calcScreen.innerText;
         } else if (testepic === '=') {
             if (firstVal != null && operator != null) {
+                decimalCheck();
                 secondVal = Number.parseFloat(currVal);
                 calcResult = calcEval();
                 calcScreen.innerText = calcResult;
@@ -90,6 +106,8 @@ function operatorCall(operation) {
         calcScreen.innerText = '';
     }
 
+    decimalCheck();
+
     if (!isNaN(Number.parseFloat(currVal)) && firstVal === null) {
         firstVal = Number.parseFloat(currVal);
         calcScreen.innerText = '';
@@ -118,10 +136,8 @@ function calcEval() {
     }
 }
 
-function toggleNeg() {
-    if (calcScreen.innerText.includes('-')) {
-        calcScreen.innerText = calcScreen.innerText.replace('-', '');
-    } else {
-        calcScreen.innerText = '-' + calcScreen.innerText;
+function decimalCheck() {
+    if (calcScreen.innerText[-1] === '.'){
+        calcScreen.innerText = calcScreen.innerText.replace('.','')
     }
 }
