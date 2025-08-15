@@ -28,6 +28,11 @@ for (const elem of calcButtons) {
         //     calcResult = null;
         // }
 
+        if (calcResult === '🖕'){
+            calcScreen.innerText = '';
+            calcResult = null;
+        }
+
         if (Number.isInteger(Number.parseInt(testepic))) {
             calcScreen.innerText += testepic;
             currVal = calcScreen.innerText;
@@ -39,6 +44,9 @@ for (const elem of calcButtons) {
             operatorCall('*');
         } else if (testepic === '/') {
             operatorCall('/');
+        } else if (testepic === 'neg') {
+            toggleNeg();
+            currVal = calcScreen.innerText;
         } else if (testepic === '=') {
             if (firstVal != null && operator != null) {
                 secondVal = Number.parseFloat(currVal);
@@ -62,8 +70,8 @@ for (const elem of calcButtons) {
     })
 
     elem.addEventListener('mousedown', () => {
-        elem.style.backgroundColor = 'rgb(120,140,150)';
-        elem.style.boxShadow = 'inset 0 0 10px 2px rgb(20, 80, 110)';
+        elem.style.backgroundColor = 'rgb(12, 39, 51)';
+        elem.style.boxShadow = 'inset 0 0 7px 2px rgb(29, 191, 255)';
     })
 
     elem.addEventListener('mouseup', () => {
@@ -107,5 +115,13 @@ function calcEval() {
         } else {
             return firstVal / secondVal;
         }
+    }
+}
+
+function toggleNeg() {
+    if (calcScreen.innerText.includes('-')) {
+        calcScreen.innerText = calcScreen.innerText.replace('-', '');
+    } else {
+        calcScreen.innerText = '-' + calcScreen.innerText;
     }
 }
